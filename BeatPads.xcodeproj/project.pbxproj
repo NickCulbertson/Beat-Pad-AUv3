@@ -1,0 +1,923 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5A9359ED2BF42B020035DFAE /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AB954D82BF3E11900808A9D /* MainInterface.storyboard */; };
+		5A9359EF2BF4D76C0035DFAE /* BeatPadAUv3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9359EE2BF4D76B0035DFAE /* BeatPadAUv3View.swift */; };
+		5AB954342BF39D7800808A9D /* BeatPadsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB954332BF39D7800808A9D /* BeatPadsApp.swift */; };
+		5AB954362BF39D7800808A9D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB954352BF39D7800808A9D /* ContentView.swift */; };
+		5AB954382BF39D7900808A9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AB954372BF39D7900808A9D /* Assets.xcassets */; };
+		5AB9543B2BF39D7900808A9D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AB9543A2BF39D7900808A9D /* Preview Assets.xcassets */; };
+		5AB954452BF39D7A00808A9D /* BeatPadsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB954442BF39D7A00808A9D /* BeatPadsTests.swift */; };
+		5AB9544F2BF39D7A00808A9D /* BeatPadsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB9544E2BF39D7A00808A9D /* BeatPadsUITests.swift */; };
+		5AB954512BF39D7A00808A9D /* BeatPadsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB954502BF39D7A00808A9D /* BeatPadsUITestsLaunchTests.swift */; };
+		5AB954602BF39EF100808A9D /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5AB9545F2BF39EF100808A9D /* AudioKit */; };
+		5AB954642BF39F7A00808A9D /* Controls in Frameworks */ = {isa = PBXBuildFile; productRef = 5AB954632BF39F7A00808A9D /* Controls */; };
+		5AB954662BF39F8500808A9D /* Keyboard in Frameworks */ = {isa = PBXBuildFile; productRef = 5AB954652BF39F8500808A9D /* Keyboard */; };
+		5AB954682BF39FC000808A9D /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 5AB954672BF39FC000808A9D /* Sounds */; };
+		5AB9546A2BF3A48C00808A9D /* DrumKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB954692BF3A48C00808A9D /* DrumKey.swift */; };
+		5AB9546E2BF3C53500808A9D /* MIDIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5AB9546D2BF3C53500808A9D /* MIDIKit */; };
+		5AB954D92BF3E11900808A9D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AB954D82BF3E11900808A9D /* MainInterface.storyboard */; };
+		5AB954DD2BF3E11900808A9D /* AudioUnitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB954DC2BF3E11900808A9D /* AudioUnitViewController.swift */; };
+		5AB954ED2BF3E25400808A9D /* BeatPadAUv3AudioUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB954EC2BF3E25400808A9D /* BeatPadAUv3AudioUnit.swift */; };
+		5AB954EE2BF3E39500808A9D /* BeatPadAUv3Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5AB954B02BF3E11900808A9D /* BeatPadAUv3Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5AB954F42BF41C8200808A9D /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5AB954F32BF41C8200808A9D /* AudioKit */; };
+		5AB954F62BF41C8200808A9D /* Keyboard in Frameworks */ = {isa = PBXBuildFile; productRef = 5AB954F52BF41C8200808A9D /* Keyboard */; };
+		5AB954F82BF41C8200808A9D /* Controls in Frameworks */ = {isa = PBXBuildFile; productRef = 5AB954F72BF41C8200808A9D /* Controls */; };
+		5AB954FA2BF41C8200808A9D /* MIDIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5AB954F92BF41C8200808A9D /* MIDIKit */; };
+		5AB954FB2BF41CAE00808A9D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB954352BF39D7800808A9D /* ContentView.swift */; };
+		5AB954FC2BF41CAE00808A9D /* DrumKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB954692BF3A48C00808A9D /* DrumKey.swift */; };
+		5AB954FD2BF41EB400808A9D /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 5AB954672BF39FC000808A9D /* Sounds */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5AB954412BF39D7A00808A9D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AB954282BF39D7800808A9D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AB9542F2BF39D7800808A9D;
+			remoteInfo = BeatPads;
+		};
+		5AB9544B2BF39D7A00808A9D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AB954282BF39D7800808A9D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AB9542F2BF39D7800808A9D;
+			remoteInfo = BeatPads;
+		};
+		5AB954F02BF3E39500808A9D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AB954282BF39D7800808A9D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AB954AF2BF3E11900808A9D;
+			remoteInfo = BeatPadAUv3Extension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5AB954F22BF3E39600808A9D /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5AB954EE2BF3E39500808A9D /* BeatPadAUv3Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		5A9359EE2BF4D76B0035DFAE /* BeatPadAUv3View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeatPadAUv3View.swift; sourceTree = "<group>"; };
+		5AB954302BF39D7800808A9D /* BeatPads.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeatPads.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AB954332BF39D7800808A9D /* BeatPadsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatPadsApp.swift; sourceTree = "<group>"; };
+		5AB954352BF39D7800808A9D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5AB954372BF39D7900808A9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5AB9543A2BF39D7900808A9D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5AB954402BF39D7A00808A9D /* BeatPadsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeatPadsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AB954442BF39D7A00808A9D /* BeatPadsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatPadsTests.swift; sourceTree = "<group>"; };
+		5AB9544A2BF39D7A00808A9D /* BeatPadsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeatPadsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AB9544E2BF39D7A00808A9D /* BeatPadsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatPadsUITests.swift; sourceTree = "<group>"; };
+		5AB954502BF39D7A00808A9D /* BeatPadsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatPadsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5AB954672BF39FC000808A9D /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
+		5AB954692BF3A48C00808A9D /* DrumKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrumKey.swift; sourceTree = "<group>"; };
+		5AB9546B2BF3C46A00808A9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5AB9546F2BF3C74900808A9D /* BeatPads.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BeatPads.entitlements; sourceTree = "<group>"; };
+		5AB954B02BF3E11900808A9D /* BeatPadAUv3Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BeatPadAUv3Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AB954D82BF3E11900808A9D /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		5AB954DC2BF3E11900808A9D /* AudioUnitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioUnitViewController.swift; sourceTree = "<group>"; };
+		5AB954DE2BF3E11900808A9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AB954EC2BF3E25400808A9D /* BeatPadAUv3AudioUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeatPadAUv3AudioUnit.swift; sourceTree = "<group>"; };
+		5AB954EF2BF3E39500808A9D /* BeatPadAUv3Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BeatPadAUv3Extension.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5AB9542D2BF39D7800808A9D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AB954662BF39F8500808A9D /* Keyboard in Frameworks */,
+				5AB954642BF39F7A00808A9D /* Controls in Frameworks */,
+				5AB9546E2BF3C53500808A9D /* MIDIKit in Frameworks */,
+				5AB954602BF39EF100808A9D /* AudioKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AB9543D2BF39D7A00808A9D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AB954472BF39D7A00808A9D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AB954AD2BF3E11900808A9D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AB954F42BF41C8200808A9D /* AudioKit in Frameworks */,
+				5AB954F82BF41C8200808A9D /* Controls in Frameworks */,
+				5AB954FA2BF41C8200808A9D /* MIDIKit in Frameworks */,
+				5AB954F62BF41C8200808A9D /* Keyboard in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5AB954272BF39D7800808A9D = {
+			isa = PBXGroup;
+			children = (
+				5AB954672BF39FC000808A9D /* Sounds */,
+				5AB954322BF39D7800808A9D /* BeatPads */,
+				5AB954432BF39D7A00808A9D /* BeatPadsTests */,
+				5AB9544D2BF39D7A00808A9D /* BeatPadsUITests */,
+				5AB954B42BF3E11900808A9D /* BeatPadAUv3Extension */,
+				5AB954312BF39D7800808A9D /* Products */,
+				5AB9545E2BF39EF100808A9D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5AB954312BF39D7800808A9D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5AB954302BF39D7800808A9D /* BeatPads.app */,
+				5AB954402BF39D7A00808A9D /* BeatPadsTests.xctest */,
+				5AB9544A2BF39D7A00808A9D /* BeatPadsUITests.xctest */,
+				5AB954B02BF3E11900808A9D /* BeatPadAUv3Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5AB954322BF39D7800808A9D /* BeatPads */ = {
+			isa = PBXGroup;
+			children = (
+				5AB9546F2BF3C74900808A9D /* BeatPads.entitlements */,
+				5AB9546B2BF3C46A00808A9D /* Info.plist */,
+				5AB954332BF39D7800808A9D /* BeatPadsApp.swift */,
+				5AB954352BF39D7800808A9D /* ContentView.swift */,
+				5AB954692BF3A48C00808A9D /* DrumKey.swift */,
+				5AB954372BF39D7900808A9D /* Assets.xcassets */,
+				5AB954392BF39D7900808A9D /* Preview Content */,
+			);
+			path = BeatPads;
+			sourceTree = "<group>";
+		};
+		5AB954392BF39D7900808A9D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				5AB9543A2BF39D7900808A9D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5AB954432BF39D7A00808A9D /* BeatPadsTests */ = {
+			isa = PBXGroup;
+			children = (
+				5AB954442BF39D7A00808A9D /* BeatPadsTests.swift */,
+			);
+			path = BeatPadsTests;
+			sourceTree = "<group>";
+		};
+		5AB9544D2BF39D7A00808A9D /* BeatPadsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5AB9544E2BF39D7A00808A9D /* BeatPadsUITests.swift */,
+				5AB954502BF39D7A00808A9D /* BeatPadsUITestsLaunchTests.swift */,
+			);
+			path = BeatPadsUITests;
+			sourceTree = "<group>";
+		};
+		5AB9545E2BF39EF100808A9D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5AB954B42BF3E11900808A9D /* BeatPadAUv3Extension */ = {
+			isa = PBXGroup;
+			children = (
+				5AB954EF2BF3E39500808A9D /* BeatPadAUv3Extension.entitlements */,
+				5AB954DE2BF3E11900808A9D /* Info.plist */,
+				5AB954D82BF3E11900808A9D /* MainInterface.storyboard */,
+				5AB954EC2BF3E25400808A9D /* BeatPadAUv3AudioUnit.swift */,
+				5AB954DC2BF3E11900808A9D /* AudioUnitViewController.swift */,
+				5A9359EE2BF4D76B0035DFAE /* BeatPadAUv3View.swift */,
+			);
+			path = BeatPadAUv3Extension;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5AB9542F2BF39D7800808A9D /* BeatPads */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AB954542BF39D7A00808A9D /* Build configuration list for PBXNativeTarget "BeatPads" */;
+			buildPhases = (
+				5AB9542C2BF39D7800808A9D /* Sources */,
+				5AB9542D2BF39D7800808A9D /* Frameworks */,
+				5AB9542E2BF39D7800808A9D /* Resources */,
+				5AB954F22BF3E39600808A9D /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5AB954F12BF3E39500808A9D /* PBXTargetDependency */,
+			);
+			name = BeatPads;
+			packageProductDependencies = (
+				5AB9545F2BF39EF100808A9D /* AudioKit */,
+				5AB954632BF39F7A00808A9D /* Controls */,
+				5AB954652BF39F8500808A9D /* Keyboard */,
+				5AB9546D2BF3C53500808A9D /* MIDIKit */,
+			);
+			productName = BeatPads;
+			productReference = 5AB954302BF39D7800808A9D /* BeatPads.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5AB9543F2BF39D7A00808A9D /* BeatPadsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AB954572BF39D7A00808A9D /* Build configuration list for PBXNativeTarget "BeatPadsTests" */;
+			buildPhases = (
+				5AB9543C2BF39D7A00808A9D /* Sources */,
+				5AB9543D2BF39D7A00808A9D /* Frameworks */,
+				5AB9543E2BF39D7A00808A9D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5AB954422BF39D7A00808A9D /* PBXTargetDependency */,
+			);
+			name = BeatPadsTests;
+			productName = BeatPadsTests;
+			productReference = 5AB954402BF39D7A00808A9D /* BeatPadsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5AB954492BF39D7A00808A9D /* BeatPadsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AB9545A2BF39D7A00808A9D /* Build configuration list for PBXNativeTarget "BeatPadsUITests" */;
+			buildPhases = (
+				5AB954462BF39D7A00808A9D /* Sources */,
+				5AB954472BF39D7A00808A9D /* Frameworks */,
+				5AB954482BF39D7A00808A9D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5AB9544C2BF39D7A00808A9D /* PBXTargetDependency */,
+			);
+			name = BeatPadsUITests;
+			productName = BeatPadsUITests;
+			productReference = 5AB9544A2BF39D7A00808A9D /* BeatPadsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		5AB954AF2BF3E11900808A9D /* BeatPadAUv3Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AB954DF2BF3E11900808A9D /* Build configuration list for PBXNativeTarget "BeatPadAUv3Extension" */;
+			buildPhases = (
+				5AB954AC2BF3E11900808A9D /* Sources */,
+				5AB954AD2BF3E11900808A9D /* Frameworks */,
+				5AB954AE2BF3E11900808A9D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BeatPadAUv3Extension;
+			packageProductDependencies = (
+				5AB954F32BF41C8200808A9D /* AudioKit */,
+				5AB954F52BF41C8200808A9D /* Keyboard */,
+				5AB954F72BF41C8200808A9D /* Controls */,
+				5AB954F92BF41C8200808A9D /* MIDIKit */,
+			);
+			productName = BeatPadAUv3Extension;
+			productReference = 5AB954B02BF3E11900808A9D /* BeatPadAUv3Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5AB954282BF39D7800808A9D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					5AB9542F2BF39D7800808A9D = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					5AB9543F2BF39D7A00808A9D = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 5AB9542F2BF39D7800808A9D;
+					};
+					5AB954492BF39D7A00808A9D = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 5AB9542F2BF39D7800808A9D;
+					};
+					5AB954AF2BF3E11900808A9D = {
+						CreatedOnToolsVersion = 15.3;
+					};
+				};
+			};
+			buildConfigurationList = 5AB9542B2BF39D7800808A9D /* Build configuration list for PBXProject "BeatPads" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5AB954272BF39D7800808A9D;
+			packageReferences = (
+				5AB9545D2BF39DF900808A9D /* XCRemoteSwiftPackageReference "AudioKit" */,
+				5AB954612BF39F4B00808A9D /* XCRemoteSwiftPackageReference "Keyboard" */,
+				5AB954622BF39F7A00808A9D /* XCRemoteSwiftPackageReference "Controls" */,
+				5AB9546C2BF3C53500808A9D /* XCRemoteSwiftPackageReference "MIDIKit" */,
+			);
+			productRefGroup = 5AB954312BF39D7800808A9D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5AB9542F2BF39D7800808A9D /* BeatPads */,
+				5AB9543F2BF39D7A00808A9D /* BeatPadsTests */,
+				5AB954492BF39D7A00808A9D /* BeatPadsUITests */,
+				5AB954AF2BF3E11900808A9D /* BeatPadAUv3Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5AB9542E2BF39D7800808A9D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AB954682BF39FC000808A9D /* Sounds in Resources */,
+				5AB9543B2BF39D7900808A9D /* Preview Assets.xcassets in Resources */,
+				5AB954382BF39D7900808A9D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AB9543E2BF39D7A00808A9D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AB954482BF39D7A00808A9D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AB954AE2BF3E11900808A9D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AB954FD2BF41EB400808A9D /* Sounds in Resources */,
+				5A9359ED2BF42B020035DFAE /* MainInterface.storyboard in Resources */,
+				5AB954D92BF3E11900808A9D /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5AB9542C2BF39D7800808A9D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AB954362BF39D7800808A9D /* ContentView.swift in Sources */,
+				5AB9546A2BF3A48C00808A9D /* DrumKey.swift in Sources */,
+				5AB954342BF39D7800808A9D /* BeatPadsApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AB9543C2BF39D7A00808A9D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AB954452BF39D7A00808A9D /* BeatPadsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AB954462BF39D7A00808A9D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AB954512BF39D7A00808A9D /* BeatPadsUITestsLaunchTests.swift in Sources */,
+				5AB9544F2BF39D7A00808A9D /* BeatPadsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AB954AC2BF3E11900808A9D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AB954DD2BF3E11900808A9D /* AudioUnitViewController.swift in Sources */,
+				5AB954FB2BF41CAE00808A9D /* ContentView.swift in Sources */,
+				5AB954FC2BF41CAE00808A9D /* DrumKey.swift in Sources */,
+				5A9359EF2BF4D76C0035DFAE /* BeatPadAUv3View.swift in Sources */,
+				5AB954ED2BF3E25400808A9D /* BeatPadAUv3AudioUnit.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5AB954422BF39D7A00808A9D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AB9542F2BF39D7800808A9D /* BeatPads */;
+			targetProxy = 5AB954412BF39D7A00808A9D /* PBXContainerItemProxy */;
+		};
+		5AB9544C2BF39D7A00808A9D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AB9542F2BF39D7800808A9D /* BeatPads */;
+			targetProxy = 5AB9544B2BF39D7A00808A9D /* PBXContainerItemProxy */;
+		};
+		5AB954F12BF3E39500808A9D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AB954AF2BF3E11900808A9D /* BeatPadAUv3Extension */;
+			targetProxy = 5AB954F02BF3E39500808A9D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5AB954522BF39D7A00808A9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5AB954532BF39D7A00808A9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5AB954552BF39D7A00808A9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BeatPads/BeatPads.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BeatPads/Preview Content\"";
+				DEVELOPMENT_TEAM = R6J85WRCEG;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BeatPads/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MobyPixel.BeatPads;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5AB954562BF39D7A00808A9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BeatPads/BeatPads.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BeatPads/Preview Content\"";
+				DEVELOPMENT_TEAM = R6J85WRCEG;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BeatPads/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MobyPixel.BeatPads;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5AB954582BF39D7A00808A9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R6J85WRCEG;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MobyPixel.BeatPadsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BeatPads.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BeatPads";
+			};
+			name = Debug;
+		};
+		5AB954592BF39D7A00808A9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R6J85WRCEG;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MobyPixel.BeatPadsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BeatPads.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BeatPads";
+			};
+			name = Release;
+		};
+		5AB9545B2BF39D7A00808A9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R6J85WRCEG;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MobyPixel.BeatPadsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BeatPads;
+			};
+			name = Debug;
+		};
+		5AB9545C2BF39D7A00808A9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R6J85WRCEG;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MobyPixel.BeatPadsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BeatPads;
+			};
+			name = Release;
+		};
+		5AB954E02BF3E11900808A9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_CXX_LIBRARY = "libc++";
+				CODE_SIGN_ENTITLEMENTS = BeatPadAUv3Extension/BeatPadAUv3Extension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R6J85WRCEG;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BeatPadAUv3Extension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BeatPadAUv3Extension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MobyPixel.BeatPads.BeatPadsExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5AB954E12BF3E11900808A9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_CXX_LIBRARY = "libc++";
+				CODE_SIGN_ENTITLEMENTS = BeatPadAUv3Extension/BeatPadAUv3Extension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R6J85WRCEG;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BeatPadAUv3Extension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BeatPadAUv3Extension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MobyPixel.BeatPads.BeatPadsExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5AB9542B2BF39D7800808A9D /* Build configuration list for PBXProject "BeatPads" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AB954522BF39D7A00808A9D /* Debug */,
+				5AB954532BF39D7A00808A9D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AB954542BF39D7A00808A9D /* Build configuration list for PBXNativeTarget "BeatPads" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AB954552BF39D7A00808A9D /* Debug */,
+				5AB954562BF39D7A00808A9D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AB954572BF39D7A00808A9D /* Build configuration list for PBXNativeTarget "BeatPadsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AB954582BF39D7A00808A9D /* Debug */,
+				5AB954592BF39D7A00808A9D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AB9545A2BF39D7A00808A9D /* Build configuration list for PBXNativeTarget "BeatPadsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AB9545B2BF39D7A00808A9D /* Debug */,
+				5AB9545C2BF39D7A00808A9D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AB954DF2BF3E11900808A9D /* Build configuration list for PBXNativeTarget "BeatPadAUv3Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AB954E02BF3E11900808A9D /* Debug */,
+				5AB954E12BF3E11900808A9D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5AB9545D2BF39DF900808A9D /* XCRemoteSwiftPackageReference "AudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.4;
+			};
+		};
+		5AB954612BF39F4B00808A9D /* XCRemoteSwiftPackageReference "Keyboard" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/Keyboard";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.7;
+			};
+		};
+		5AB954622BF39F7A00808A9D /* XCRemoteSwiftPackageReference "Controls" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/Controls";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.4;
+			};
+		};
+		5AB9546C2BF3C53500808A9D /* XCRemoteSwiftPackageReference "MIDIKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/orchetect/MIDIKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5AB9545F2BF39EF100808A9D /* AudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5AB9545D2BF39DF900808A9D /* XCRemoteSwiftPackageReference "AudioKit" */;
+			productName = AudioKit;
+		};
+		5AB954632BF39F7A00808A9D /* Controls */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5AB954622BF39F7A00808A9D /* XCRemoteSwiftPackageReference "Controls" */;
+			productName = Controls;
+		};
+		5AB954652BF39F8500808A9D /* Keyboard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5AB954612BF39F4B00808A9D /* XCRemoteSwiftPackageReference "Keyboard" */;
+			productName = Keyboard;
+		};
+		5AB9546D2BF3C53500808A9D /* MIDIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5AB9546C2BF3C53500808A9D /* XCRemoteSwiftPackageReference "MIDIKit" */;
+			productName = MIDIKit;
+		};
+		5AB954F32BF41C8200808A9D /* AudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5AB9545D2BF39DF900808A9D /* XCRemoteSwiftPackageReference "AudioKit" */;
+			productName = AudioKit;
+		};
+		5AB954F52BF41C8200808A9D /* Keyboard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5AB954612BF39F4B00808A9D /* XCRemoteSwiftPackageReference "Keyboard" */;
+			productName = Keyboard;
+		};
+		5AB954F72BF41C8200808A9D /* Controls */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5AB954622BF39F7A00808A9D /* XCRemoteSwiftPackageReference "Controls" */;
+			productName = Controls;
+		};
+		5AB954F92BF41C8200808A9D /* MIDIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5AB9546C2BF3C53500808A9D /* XCRemoteSwiftPackageReference "MIDIKit" */;
+			productName = MIDIKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 5AB954282BF39D7800808A9D /* Project object */;
+}
