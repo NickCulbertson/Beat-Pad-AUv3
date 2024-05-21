@@ -88,8 +88,6 @@ public class BeatPadAUv3AudioUnit: AUAudioUnit {
                                                    valueStrings: GlobalValues.presets,
                                                           dependentParameters: nil)
     
-    
-
     public override init(componentDescription: AudioComponentDescription,
                          options: AudioComponentInstantiationOptions = []) throws {
 
@@ -143,9 +141,8 @@ public class BeatPadAUv3AudioUnit: AUAudioUnit {
                 AUParam4.value = AUValue(GlobalValues.presetValues[preset.number][3])
                 AUParam5.value = AUValue(GlobalValues.presetValues[preset.number][4])
                 AUParam6.value = AUValue(preset.number)
-            }
-            // User presets are always negative.
-            else {
+            } else {
+                // User presets are always negative.
                 // Attempt to restore the archived state for this user preset.
                 do {
                     fullStateForDocument = try presetState(for: preset)
@@ -160,9 +157,7 @@ public class BeatPadAUv3AudioUnit: AUAudioUnit {
     
     func play(noteNumber: UInt8, velocity: UInt8, channel: UInt8) {
         // Implementation to play a note
-        if conductor.loadingSound {
-            return
-        }
+        guard !conductor.loadingSound else { return }
         conductor.instrument.play(noteNumber: noteNumber, velocity: velocity, channel: channel)
     }
 
@@ -171,9 +166,8 @@ public class BeatPadAUv3AudioUnit: AUAudioUnit {
         conductor.instrument.stop(noteNumber: noteNumber, channel: channel)
     }
 
-    override public var supportsUserPresets: Bool {
-        return false
-    }
+    override public var supportsUserPresets: Bool { return false }
+
 
     public func setupParamTree() {
         // Create the parameter tree.
@@ -183,24 +177,14 @@ public class BeatPadAUv3AudioUnit: AUAudioUnit {
     public func setupParamCallbacks() {
         //This changes the values of the conductor
         parameterTree?.implementorValueObserver = { param, value in
-            if param.identifier == "AUParam1" {
-                self.conductor.selectSound(Int(value))
-            }
-            if param.identifier == "AUParam2" {
-                self.conductor.attackPosition=value
-            }
-            if param.identifier == "AUParam3" {
-                self.conductor.releasePosition=value
-            }
-            if param.identifier == "AUParam4" {
-                self.conductor.reverbPosition=value
-            }
-            if param.identifier == "AUParam5" {
-                self.conductor.masterPosition=value
-            }
-            if param.identifier == "AUParam6" {
-                // Update Preset Label
-            }
+            switch param.identifier {
+                        case "AUParam1": self.conductor.selectSound(Int(value))
+                        case "AUParam2": self.conductor.attackPosition = value
+                        case "AUParam3": self.conductor.releasePosition = value
+                        case "AUParam4": self.conductor.reverbPosition = value
+                        case "AUParam5": self.conductor.masterPosition = value
+                        default: break
+                        }
         }
     }
 
@@ -316,9 +300,7 @@ public class BeatPadAUv3AudioUnit: AUAudioUnit {
 
             }
         } else {
-            if conductor.loadingSound {
-                return
-            }
+            guard !conductor.loadingSound else { return }
             conductor.instrument.play(noteNumber: noteNumber, velocity: velocity, channel: channel)
         }
     }

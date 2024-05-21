@@ -8,12 +8,13 @@ import MIDIKit
 struct GlobalValues {
     static let presets = ["Kit I", "Kit II", "Kit III"]
     static let sounds = ["Kit1", "Kit1", "Kit1"]
-    static let notes = [36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51]
-    static let names = ["KICK","SNARE","CLOSED HI-HAT","OPEN HI-HAT","RIM SHOT","CRASH","SHAKER I","SHAKER II","TOM I","TOM II","TOM III","TOM IV","PAD I","PAD II","PAD III","PAD IV"]
-    // Sound, Attack, Release, Reverb, Master
-    static let presetValues = [[0.0, 0.0, 0.0, 0.0, 0.0],
-                               [1.0, 0.0, 1.0, 0.4, 0.5],
-                               [2.0, 0.0, 0.8, 0.2, 0.5]]
+    static let notes = Array(36...51)
+    static let names = ["KICK", "SNARE", "CLOSED HI-HAT", "OPEN HI-HAT", "RIM SHOT", "CRASH", "SHAKER I", "SHAKER II", "TOM I", "TOM II", "TOM III", "TOM IV", "PAD I", "PAD II", "PAD III", "PAD IV"]
+    static let presetValues: [[Float]] = [
+        [0.0, 0.0, 0.0, 0.0, 0.0],
+        [1.0, 0.0, 1.0, 0.4, 0.5],
+        [2.0, 0.0, 0.8, 0.2, 0.5]
+    ]
 }
 
 class Conductor: ObservableObject {
@@ -24,26 +25,18 @@ class Conductor: ObservableObject {
     
     @Published var currentPreset = 0
     @Published var currentSound = 0
-    @Published var playing : [Bool] = Array(repeating: false, count: 16)
+    @Published var playing = Array(repeating: false, count: 16)
     @Published var attackPosition: Float = 0.0 {
-        didSet {
-            instrument.samplerUnit.setAttack(value: attackPosition * 8.0)
-        }
+        didSet { instrument.samplerUnit.setAttack(value: attackPosition * 8.0) }
     }
     @Published var releasePosition: Float = 0.0 {
-        didSet {
-            instrument.samplerUnit.setRelease(value: releasePosition * 8.0)
-        }
+        didSet { instrument.samplerUnit.setRelease(value: releasePosition * 8.0) }
     }
     @Published var reverbPosition: Float = 0.0 {
-        didSet {
-            reverb?.dryWetMix = reverbPosition
-        }
+        didSet { reverb?.dryWetMix = reverbPosition }
     }
     @Published var masterPosition: Float = 0.0 {
-        didSet {
-            instrument.volume = masterPosition * 20 + 1
-        }
+        didSet { instrument.volume = masterPosition * 20 + 1 }
     }
     
     init() {
@@ -67,18 +60,16 @@ class Conductor: ObservableObject {
     
     func allNoteOff() {
         for i in 0...127 {
-            instrument.stop(noteNumber:MIDINoteNumber(i), channel: 0)
+            instrument.stop(noteNumber: MIDINoteNumber(i), channel: 0)
         }
     }
     
     func selectSound(_ sound: Int) {
-        if loadingSound {
-            return
-        }
+        guard !loadingSound else { return }
         loadingSound = true
         allNoteOff()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            if(!self.engine.avEngine.isRunning){ //Start the Engine
+            if !self.engine.avEngine.isRunning {
                 self.start()
             }
             self.currentSound = sound
@@ -91,52 +82,47 @@ class Conductor: ObservableObject {
             } catch {
                 Log("Could not load instrument")
             }
-            self.attackPosition  = self.attackPosition
-            self.releasePosition = self.releasePosition
-            self.reverbPosition  = self.reverbPosition
-            self.masterPosition  = self.masterPosition
             self.loadingSound = false
         }
     }
     
     func selectPreset(_ preset: Int) {
-        if loadingSound {
-            return
-        }
+        guard !loadingSound else { return }
         loadingSound = true
         allNoteOff()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            if(!self.engine.avEngine.isRunning){ //Start the Engine
+            if !self.engine.avEngine.isRunning {
                 self.start()
             }
-            self.currentSound = Int(GlobalValues.presetValues[preset][0])
-        do {
-            if let fileURL = Bundle.main.url(forResource: "Sounds/\(GlobalValues.sounds[self.currentSound])", withExtension: "aupreset") {
-                try self.instrument.loadInstrument(url: fileURL)
-            } else {
-                Log("Could not find file")
+            let presetValues = GlobalValues.presetValues[preset]
+            self.currentSound = Int(presetValues[0])
+            do {
+                if let fileURL = Bundle.main.url(forResource: "Sounds/\(GlobalValues.sounds[self.currentSound])", withExtension: "aupreset") {
+                    try self.instrument.loadInstrument(url: fileURL)
+                } else {
+                    Log("Could not find file")
+                }
+            } catch {
+                Log("Could not load instrument")
             }
-        } catch {
-            Log("Could not load instrument")
-        }
-            self.attackPosition  = Float(GlobalValues.presetValues[preset][1])
-            self.releasePosition = Float(GlobalValues.presetValues[preset][2])
-            self.reverbPosition  = Float(GlobalValues.presetValues[preset][3])
-            self.masterPosition  = Float(GlobalValues.presetValues[preset][4])
+            self.attackPosition = presetValues[1]
+            self.releasePosition = presetValues[2]
+            self.reverbPosition = presetValues[3]
+            self.masterPosition = presetValues[4]
             self.loadingSound = false
         }
     }
     
     func noteOn(pitch: Pitch, point: CGPoint) {
-        if loadingSound {
-            return
-        }
-        instrument.play(noteNumber: MIDINoteNumber(pitch.midiNoteNumber+36), velocity: 127, channel: 0)
+        guard !loadingSound else { return }
+        instrument.play(noteNumber: MIDINoteNumber(pitch.midiNoteNumber + 36), velocity: 127, channel: 0)
     }
+    
     func noteOff(pitch: Pitch) {
-        instrument.stop(noteNumber: MIDINoteNumber(pitch.midiNoteNumber+36), channel: 0)
+        instrument.stop(noteNumber: MIDINoteNumber(pitch.midiNoteNumber + 36), channel: 0)
     }
 }
+
 struct ContentView: View {
     @Environment(\.scenePhase) var scenePhase
     @StateObject var conductor = Conductor()
@@ -151,52 +137,34 @@ struct ContentView: View {
         }
     }
     
-    // Connect MIDI on init
     func MIDIConnect() {
         do {
-            print("Starting MIDI services.")
             try midiManager.start()
-        } catch {
-            print("Error starting MIDI services:", error.localizedDescription)
-        }
-        
-        do {
             try midiManager.addInputConnection(
-                to: .allOutputs, // no need to specify if we're using .allEndpoints
+                to: .allOutputs,
                 tag: "Listener",
-                filter: .owned(), // don't allow self-created virtual endpoints
-                receiver: .events { [self] events, timeStamp, source in
-                    // Note: this handler will be called on a background thread
-                    // so call the next line on main if it may result in UI updates
+                filter: .owned(),
+                receiver: .events { [self] events, _, _ in
                     DispatchQueue.main.async {
                         events.forEach { self.received(midiEvent: $0) }
                     }
                 }
             )
         } catch {
-            print(
-                "Error setting up managed MIDI all-listener connection:",
-                error.localizedDescription
-            )
+            print("Error starting MIDI services or setting up managed MIDI connection:", error.localizedDescription)
         }
     }
     
-    // MIDI Events
     private func received(midiEvent: MIDIKit.MIDIEvent) {
         switch midiEvent {
         case .noteOn(let payload):
-            print("Note On:", payload.note, payload.velocity, payload.channel)
-            if conductor.loadingSound {
-                return
-            }
+            guard !conductor.loadingSound else { return }
             conductor.instrument.play(noteNumber: MIDINoteNumber(payload.note.number.uInt8Value), velocity: payload.velocity.midi1Value.uInt8Value, channel: 0)
             NotificationCenter.default.post(name: .MIDIKey, object: nil, userInfo: ["info": payload.note.number.uInt8Value, "bool": true])
         case .noteOff(let payload):
-            print("Note Off:", payload.note, payload.velocity, payload.channel)
             conductor.instrument.stop(noteNumber: MIDINoteNumber(payload.note.number.uInt8Value), channel: 0)
             NotificationCenter.default.post(name: .MIDIKey, object: nil, userInfo: ["info": payload.note.number.uInt8Value, "bool": false])
         case .cc(let payload):
-            //ADD CC VALUE HANDLING HERE
             print("CC:", payload.controller, payload.value, payload.channel)
         case .programChange(let payload):
             print("Program Change:", payload.program, payload.channel)
@@ -205,12 +173,7 @@ struct ContentView: View {
         }
     }
     
-    // MIDI Manager (MIDI methods are in SoundFont+MIDI)
-    let midiManager = MIDIManager(
-        clientName: "TestAppMIDIManager",
-        model: "TestApp",
-        manufacturer: "MyCompany"
-    )
+    let midiManager = MIDIManager(clientName: "TestAppMIDIManager", model: "TestApp", manufacturer: "MyCompany")
     
     var body: some View {
         ZStack {
@@ -294,7 +257,7 @@ struct ContentView: View {
                     }
                 })
             }.padding(10)
-        }.onChange(of: scenePhase) { oldState, newPhase in
+        }.onChange(of: scenePhase) { _, newPhase in
             if newPhase == .active {
                 if !conductor.engine.avEngine.isRunning {
                     conductor.selectSound(conductor.currentSound)
@@ -303,38 +266,43 @@ struct ContentView: View {
             } else if newPhase == .background {
                 conductor.engine.stop()
             }
-        }.onReceive(NotificationCenter.default.publisher(for: AVAudioSession.routeChangeNotification)) { event in
-            switch event.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt {
-            case AVAudioSession.RouteChangeReason.newDeviceAvailable.rawValue:
-                reloadAudio()
-            case AVAudioSession.RouteChangeReason.oldDeviceUnavailable.rawValue:
-                reloadAudio()
-            default:
-                break
-            }
-        }.onReceive(NotificationCenter.default.publisher(for: AVAudioSession.interruptionNotification)) { event in
-            guard let info = event.userInfo,
-                  let typeValue = info[AVAudioSessionInterruptionTypeKey] as? UInt,
-                  let type = AVAudioSession.InterruptionType(rawValue: typeValue) else {
-                return
-            }
-            if type == .began {
-                self.conductor.engine.stop()
-            } else if type == .ended {
-                guard let optionsValue =
-                        info[AVAudioSessionInterruptionOptionKey] as? UInt else {
-                    return
-                }
-                if AVAudioSession.InterruptionOptions(rawValue: optionsValue).contains(.shouldResume) {
-                    reloadAudio()
-                }
-            }
-        }.onAppear() {
-            self.conductor.start()
+        }
+        .onAppear {
+            conductor.start()
             MIDIConnect()
-        }.onDisappear() {
-            self.conductor.stop()
-        }.environmentObject(conductor)
+        }
+        .onDisappear {
+            conductor.stop()
+        }
+        .onReceive(NotificationCenter.default.publisher(for: AVAudioSession.routeChangeNotification)) { event in
+            handleAudioRouteChange(event: event)
+        }
+        .onReceive(NotificationCenter.default.publisher(for: AVAudioSession.interruptionNotification)) { event in
+            handleAudioInterruption(event: event)
+        }
+    }
+    
+    private func handleAudioRouteChange(event: Notification) {
+        if let reason = event.userInfo?[AVAudioSessionRouteChangeReasonKey] as? UInt {
+            if reason == AVAudioSession.RouteChangeReason.newDeviceAvailable.rawValue ||
+                reason == AVAudioSession.RouteChangeReason.oldDeviceUnavailable.rawValue {
+                reloadAudio()
+            }
+        }
+    }
+    
+    private func handleAudioInterruption(event: Notification) {
+        guard let info = event.userInfo,
+              let typeValue = info[AVAudioSessionInterruptionTypeKey] as? UInt,
+              let type = AVAudioSession.InterruptionType(rawValue: typeValue) else { return }
+        if type == .began {
+            conductor.engine.stop()
+        } else if type == .ended {
+            guard let optionsValue = info[AVAudioSessionInterruptionOptionKey] as? UInt else { return }
+            if AVAudioSession.InterruptionOptions(rawValue: optionsValue).contains(.shouldResume) {
+                reloadAudio()
+            }
+        }
     }
 }
 
@@ -374,7 +342,7 @@ extension AVAudioUnit {
 }
 
 extension NSNotification.Name {
-    static let keyNoteOn = Notification.Name("keyNoteOn")
+    static let keyNoteOn  = Notification.Name("keyNoteOn")
     static let keyNoteOff = Notification.Name("keyNoteOff")
-    static let MIDIKey = Notification.Name("MIDIKey")
+    static let MIDIKey    = Notification.Name("MIDIKey")
 }
