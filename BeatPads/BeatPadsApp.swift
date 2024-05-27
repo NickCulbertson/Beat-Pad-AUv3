@@ -1,10 +1,3 @@
-//
-//  BeatPadsApp.swift
-//  BeatPads
-//
-//  Created by Nick Culbertson on 5/14/24.
-//
-
 import SwiftUI
 import AVFoundation
 import AudioKit
