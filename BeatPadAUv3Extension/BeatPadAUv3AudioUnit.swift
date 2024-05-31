@@ -98,8 +98,12 @@ public class BeatPadAUv3AudioUnit: AUAudioUnit {
             try super.init(componentDescription: componentDescription, options: options)
             try setOutputBusArrays()
             
-            //Start engine early to play in AUv3 interface
+            #if os(iOS)
+            
+            #else
+            //Start engine early to play in AUv3 interface on macOS
             self.engineStart()
+            #endif
         } catch {
             Log("Could not init audio unit")
             throw error

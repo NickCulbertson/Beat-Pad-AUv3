@@ -151,7 +151,7 @@ struct BeatPadAUv3View: View {
                                     Text(GlobalValues.presets[audioParameter.currentPreset])
                                         .font(.headline) // Font for the preset label
                                         .frame(maxWidth: .infinity) // Ensures the text stays centered
-                                        .onChange(of: audioParameter.presetPosition) { oldValue, newValue in
+                                        .onChange(of: audioParameter.presetPosition) { newValue in
                                                                             audioParameter.updatePresetValue(newValue)
                                                                         }
                                     Spacer()
@@ -173,7 +173,7 @@ struct BeatPadAUv3View: View {
                             .backgroundColor(.blue.opacity(0.2))
                             .foregroundColor(.blue.opacity(0.4))
                             .cornerRadius(10)
-                            .onChange(of: audioParameter.attackPosition) { oldValue, newValue in
+                            .onChange(of: audioParameter.attackPosition) { newValue in
                                                                 audioParameter.updateAttackValue(newValue)
                                                             }
                         Text("Attack").allowsHitTesting(false)
@@ -183,7 +183,7 @@ struct BeatPadAUv3View: View {
                             .backgroundColor(.blue.opacity(0.2))
                             .foregroundColor(.blue.opacity(0.4))
                             .cornerRadius(10)
-                            .onChange(of: audioParameter.releasePosition) { oldValue, newValue in
+                            .onChange(of: audioParameter.releasePosition) { newValue in
                                                                 audioParameter.updateReleaseValue(newValue)
                                                             }
                         Text("Release").allowsHitTesting(/*@START_MENU_TOKEN@*/false/*@END_MENU_TOKEN@*/)
@@ -193,7 +193,7 @@ struct BeatPadAUv3View: View {
                             .backgroundColor(.blue.opacity(0.2))
                             .foregroundColor(.blue.opacity(0.4))
                             .cornerRadius(10)
-                            .onChange(of: audioParameter.reverbPosition) { oldValue, newValue in
+                            .onChange(of: audioParameter.reverbPosition) { newValue in
                                                                 audioParameter.updateReverbValue(newValue)
                                                             }
                         Text("Reverb").allowsHitTesting(/*@START_MENU_TOKEN@*/false/*@END_MENU_TOKEN@*/)
@@ -203,7 +203,7 @@ struct BeatPadAUv3View: View {
                             .backgroundColor(.blue.opacity(0.2))
                             .foregroundColor(.blue.opacity(0.4))
                             .cornerRadius(10)
-                            .onChange(of: audioParameter.masterPosition) { oldValue, newValue in
+                            .onChange(of: audioParameter.masterPosition) { newValue in
                                                                 audioParameter.updateMasterValue(newValue)
                                                             }
                         Text("Master").allowsHitTesting(/*@START_MENU_TOKEN@*/false/*@END_MENU_TOKEN@*/)
